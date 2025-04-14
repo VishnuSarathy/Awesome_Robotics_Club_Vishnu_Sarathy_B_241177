@@ -11,3 +11,17 @@ Solution 1:
   there are only 6 analog input in aurdino but there are 8 rows so to detect voltages we will be needing 8 analog pins, so we should be using esp32 or aurdino mega.
   "int rawValue = analogRead(sensorPin); 
   float voltage = rawValue * vRef / 1023 * scaleFactor;"
+  
+
+<h1> Part B </h1>h1>
+PART-B: Now, let’s assume you’ve chosen a mechanism to detect the movement of the pieces. To simplify the problem, suppose this mechanism works such that each square outputs a signal of 1 when a piece is lifted from it—let’s define this event as an “activation.”
+Given that there are 64 squares on a chessboard, but our poor Arduino has only about 20 I/O pins, how would you detect exactly which square has been activated using the minimum number of pins? Present your answer in the form of a detailed explanation of the solution with diagrams wherever necessary.
+
+Solution 1:
+  Forgetting the solution i gave for 1st part, as per question let us assume we have 64 digital pins, each one of them signals one if it is activated and 0 otherwise. first we will start addressing them. like a1 = 0, a2 =1, ... , h8 = 63.
+  Now to represent a number < 64 we need only 6 bits i.e. 2^6 = 64. 6 bits == 6 digital pins.
+  by using combination of gates we can do this as i have attached picture for 4 to 2 converter, the combination is already made as encoders we and use 64 to 6 encoder or make that with help of 8 to 3 encoders.
+  the issue is encoders give 000000 for both 0 and 1 in 0th pin. i.e.. we cant find of the 0th pin is activated or not. to avoid this we will be using an extra pin V. V turns up if atleast 1 of the pin is activated and turns down if none of them are activated.
+  So totally we need 7 pins.
+Solution 2:
+  We can use MCP23017 port extenders. this uses I2C protocal and ectends upto 16 pins form just two pins, but aurdino has now 2 pair for i2c pins but we need 4

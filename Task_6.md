@@ -1,4 +1,4 @@
-<h1> Part A </h1>
+<p><h1> Part A </h1>
 PART-A: Initially, we will need to figure out a reliable and efficient way to detect which chess piece moves from which square to which. We’re specifically looking for solutions that don’t involve computer vision, RFID, or magnetic sensors. Present your solution in the form of a detailed explanation of the mechanism with diagrams.
 
 Solution 1:
@@ -26,4 +26,4 @@ Solution 1:
   Flaws:-
   This cant handle multiple activations at same time.
 Solution 2:
-  We can use MCP23017 port extenders. this uses I2C protocal and ectends upto 16 pins form just two pins this makes the required pins to 8, but aurdino has now 2 pair for i2c pins but we need 4 so i think this is not possible. also i dont have exact idea how this works i am looking into that.
+  We can use MCP23017 port extenders. this uses I2C protocal and ectends upto 16 pins form just two pins this makes the required pins to 8, but aurdino has now 2 pair for i2c pins but we need 4 so i think this is not possible. also i dont have exact idea how this works i am looking into that.</p>
